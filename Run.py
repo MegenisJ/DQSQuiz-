@@ -1,8 +1,10 @@
 ##This is the main running of the program, Will be basic calls to other methods and UI mainly
 def InitializeQuiz():
+    #Generates Answer Dictionary from the Answer Bank csv, each lines is for one quesion, indexed in the same order as the quesions. 
     #calls Question.AddQuestion from a QuestionBanks.csv file to add all of them to the program
 
     #Loads previous stats from a PreviousStats.csv file
+
 
 def QuizLoop():
     while EndProgram == False: # This needs to have end conditions
