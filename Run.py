@@ -7,54 +7,70 @@ import csv
  #   while EndProgram != False: # This needs to have end conditions
         #Main menu function called
 def WriteQuestions(QuestionList):
-    f = open("Questions.csv","w")
-    f.truncate()
-    f.close()
-
-    with open("Questions.csv",'wb') as csvfile:
+    with open("Questions.csv",'w',newline = '') as csvfile:
         writer = csv.writer(csvfile)
-        for  x in range(0,len(QuestionList)):
-            a1 = QuestionList[x].Answers["A"]
-            a2 = QuestionList[x].Answers["B"]
-            a3 = QuestionList[x].Answers["C"]
-            a4 = QuestionList[x].Answers["D"]
-            data = [QuestionList[x].QuestionAsked,a1,a2,a3,a4,QuestionList[x].CorrectAnswer,QuestionList[x].Explanation,QuestionList[x].Topics]
-            writer.writerow(data)
+   #     print(QuestionList)
+       # for  x in range(0,len(QuestionList)):
+        #    a1 = QuestionList[x].Answers["A"]
+         #   a2 = QuestionList[x].Answers["B"]
+          #  a3 = QuestionList[x].Answers["C"]
+           # a4 = QuestionList[x].Answers["D"]
+            #data = [QuestionList[x].QuestionAsked,a1,a2,a3,a4,QuestionList[x].CorrectAnswer,QuestionList[x].Explanation,QuestionList[x].Topics]
+            #writer.writerow(data)
 
-def ReadQuestions(QuestionList):
-  
+        for  x in QuestionList:
+            a1 = x.Answers["A"]
+            a2 = x.Answers["B"]
+            a3 = x.Answers["C"]
+            a4 = x.Answers["D"]
+            data = [x.QuestionAsked,a1,a2,a3,a4,x.CorrectAnswer,x.Explanation,x.Topics]
+            writer.writerow(data)
+            
+def ReadQuestions():
+    QList = []
     with open("Questions.csv","r") as csvfile:
-        r = csv.reader(csvfile,delimiter = ' ',quotechar='|')
+        r = csv.reader(csvfile)
         for row in r:
             #print(row) #QuestionList 
             #Q = row[0]
-            print(row)
+            #print(row)
             A = {}
-            #A.update({"A":row[1]})
-            #A.update({"B":row[2]})
-            #A.update({"C":row[3]})
-            #A.update({"D":row[4]})
+            A.update({"A":row[1]})
+            A.update({"B":row[2]})
+            A.update({"C":row[3]})
+            A.update({"D":row[4]})
 
 
-            #QuestionList.append(Question(row[0],A,row[5],row[6],row[7]))
+            QList.append(Question(row[0],A,row[5],row[6],row[7]))
+    #        print(QList[0].QuestionAsked)
+     #       print(QList[0].Answers)
+      #      print(QList[0].CorrectAnswer)
+    return(QList)
 
 def MainMenu(): 
-   
     QuestionList = []
-    print("Menu: ")
-    print("1 new question")
-    print("2 Run Quiz")
+    EndProgram = False
+    while EndProgram ==False:
+        #QuestionList = []
+        print("Menu: ")
+        print("1 new question")
+        print("2 Run Quiz")
+        print("3 Exit program")
     #print("3 new question")
-    Menu = input()
-    if Menu == 1:
-        ReadQuestions(QuestionList)
-        ChangeQuestions(QuestionList)
-        WriteQuestions(QuestionList)
-    elif Menu ==2:
-        ReadQuestions(QuestionList)
-        UserQuiz = Quiz(['df'],QuestionList) ##Create the topic list
-        UserQuiz.SetupQuiz()
-        UserQuiz.TakeQuiz()
+        Menu = input()
+        QuestionList = ReadQuestions()
+        if Menu == 1:
+            QuestionList = ReadQuestions()
+            ChangeQuestions(QuestionList)
+            #WriteQuestions(QuestionList)
+        elif Menu ==2:
+           # QuestionList = ReadQuestions()
+            UserQuiz = Quiz(['work'],QuestionList) ##Create the topic list
+            #UserQuiz.SetupQuiz()
+           # print(QuestionList[0])
+            UserQuiz.TakeQuiz(QuestionList)
+        elif Menu ==3:
+            EndProgram = True
       #  print(UserQuiz.AllQuestions)
    # elif Menu ==3:
 
@@ -73,7 +89,8 @@ def MainMenu():
 
 
     #Once Games over return to 3/4 depending on which was selected
-def ChangeQuestions(QuestionList): #Alice 
+def ChangeQuestions(QuestionList): #Alice
+
     print("1 to add new question")
     QuestionOption = input("Answer: ")
     #print(QuestionOption)
@@ -101,6 +118,10 @@ def ChangeQuestions(QuestionList): #Alice
         #x = Question()
         QuestionList.append(Question(q,d,CorrectAnswer,ex,t))
 
+        with open("Questions.csv",'w',newline = '') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow([q,d["A"],d["B"],d["C"],d["D"],CorrectAnswer,ex,t])
+
     else:
 
         print("Invalid input")
@@ -109,7 +130,7 @@ def ChangeQuestions(QuestionList): #Alice
    
     #Allows quesitons to be changed/ added / deleted
     #Using Question class basically
-#def Verify(FUNCT):
+    #def Verify(FUNCT):
     #Ensures a COMSC staff member is there to run
     #a function
     #Verify .....
