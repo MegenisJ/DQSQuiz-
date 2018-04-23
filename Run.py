@@ -1,9 +1,7 @@
 from Question import Question
 from Quiz import Quiz
 import csv
-##This is the main running of the program, Will be basic calls to other methods and UI mainly
-
-def WriteQuestions(QuestionList):
+def WriteQuestions(QuestionList): ##Can be removed 
     with open("Questions.csv",'w',newline = '') as csvfile:
         writer = csv.writer(csvfile)
         for  x in QuestionList:
@@ -11,46 +9,43 @@ def WriteQuestions(QuestionList):
             a2 = x.Answers["B"]
             a3 = x.Answers["C"]
             a4 = x.Answers["D"]
-           # data = x.QuestionAsked,a1,a2,a3,a4,x.CorrectAnswer,x.Explanation,x.Topics
+       
             writer.writerow(x.QuestionAsked,a1,a2,a3,a4,x.CorrectAnswer,x.Explanation,x.Topics)
-            
-def ReadQuestions():
+                                    ##whole function
+
+
+def ReadQuestions(QuestionList):
     QList = []
-    with open("Questions.csv") as csvfile:
-     
-        #r = csv.reader(csvfile)
+    with open("Questions.csv",newline = '') as csvfile:
         r = csv.reader(csvfile)
         for row in r:
-            print(row) #QuestionList 
-            #Q = row[0]
-            #print(row)
-            A = {}
-            #print(row[0])
+          #  print(row) #QuestionList 
+            A = {"A":"","B":"","C":"","D":""}
             A.update({"A":row[1]})
             A.update({"B":row[2]})
             A.update({"C":row[3]})
             A.update({"D":row[4]})
-
-
-            QList.append(Question(row[0],A,row[5],row[6],row[7]))
+            qs = row[0]
+            print(qs)
+            ca = row[5]
+            ex = row[6]
+            t = row[7] #eval this
+            QList.append(Question(qs,A,ca,ex,t))
     return(QList)
 
 def MainMenu(): 
     QuestionList = []
     EndProgram = False
     while EndProgram ==False:
-        #QuestionList = []
         print("Menu: ")
         print("1 new question")
         print("2 Run Quiz")
         print("3 Exit program")
-    #print("3 new question")
         Menu = input()
-        QuestionList = ReadQuestions()
+        QuestionList = ReadQuestions(QuestionList)
         if Menu == "1":
             QuestionList = ReadQuestions()
             ChangeQuestions(QuestionList)
-            #WriteQuestions(QuestionList)
         elif Menu =="2":
            # QuestionList = ReadQuestions()
             UserQuiz = Quiz(['work'],QuestionList) ##Create the topic list
@@ -62,23 +57,10 @@ def MainMenu():
       #  print(UserQuiz.AllQuestions)
    # elif Menu ==3:
 
-
-
-
-
-
-    #load all questions into the program from csv file
-    # Options (More can be added)
-    #1 Log in as admin to change stuff
-    #2 GenerateQuiz (call Quiz.Quiz.SetupQuiz())
-    #3 Run With all Q's in random order (call Quiz.Quiz.SetupQuiz())
-
 def ChangeQuestions(QuestionList): #Alice
 
     print("1 to add new question")
     QuestionOption = input("Answer: ")
-    #print(QuestionOption)
-    #d = {}
     if QuestionOption == "1":
         d = {"A":"","B":"","C":"","D":""}
 
@@ -102,7 +84,7 @@ def ChangeQuestions(QuestionList): #Alice
         #x = Question()
         QuestionList.append(Question(q,d,CorrectAnswer,ex,t))
 
-        with open("Questions.csv",'w',newline = '') as csvfile:
+        with open(r"Questions.csv",'a') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([q,d["A"],d["B"],d["C"],d["D"],CorrectAnswer,ex,t])
 
