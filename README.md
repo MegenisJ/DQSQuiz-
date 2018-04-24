@@ -1,3 +1,9 @@
 # DQSQuiz-
 Group 25 DQS program 
-CSV files are yet to be added, but code and structure for the program has been created 
+call RunQuiz.py to run the quiz
+Take part in the quiz - James 
+Amend current questions - Alice 
+View Stats - Dokubo
+Enter info about schools - Ianto
+Select a topic - Bartosz
+Add Question - Aris 

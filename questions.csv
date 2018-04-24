@@ -1,24 +1,24 @@
-1,What base is the binary number system?,1,2,10,16,Binary,B,0,0,0
-2,What is one binary digit called?,Byte,bit,word,nibble,Binary,B,0,0,0
-3,What is the binary  value 1101 in decimal?,13,11,1101,3,Binary,A,0,0,0
-4,How many different values can be represented in 8 bits?,256,255,128,16,Binary,A,0,0,0
-5,What is the highest value that can be represented in 4 bits?,13,16,4,32,Binary,A,0,0,0
-6,what is the binary representation of 17(decimal)?,10001,11111,10000,10011,Binary,A,0,0,0
-7,How many bits are there in a byte?,2,4,8,16,Binary,C,0,0,0
-8,How many bits are there in a nibble?,2,4,8,16,Binary,B,0,0,0
-9,What is the binary value 100111 in decimal?,24,69,71,73,Binary,C,0,0,0
-10,How many states can each bit have?,1,2,4,8,Binary,B,0,0,0
-11,In what year was the word "computer" first used to describe a person who performed calculations?,1613,1713,1822,1837,History,A,0,0,0
-12,Charles Babbage began to develop his “Difference Engine” in what year?,1613,1822,1837,1936,History,B,0,0,0
-13,What was the name of the first mechanical calculator proposed by Charles Babbage?,Difference Engine,Analytical Engine,Turing Machine,Colossus,History,B,0,0,0
-14,What did the first electro-mechanical computer read instructions from?,35mm film,Punch cards,Punched drum,memory,History,A,0,0,0
-15,In what year did Alan Turing begin developing the Turing machine?,1936,1943,1949,1950,History,A,0,0,0
-16,What was the name of the first electric programmable computer?,,,,,History,C,0,0,0
-17,Which computer ran the first graphical computer game?,,,,,History,A,0,0,0
-18,The Univac 1101 was the first computer that could do what?,,,,,History,C,0,0,0
-19,When was the first computer mouse invented?,,,,,History,A,0,0,0
-20,In what year did Hewlett Packard begin to sell the first desktop computer?,,,,,History,A,0,0,0
-21,What is a Computer programme?,,,,,Other,A,0,0,0
-22,Why do we test programmes?,,,,,Other,C,0,0,0
-23,Where would you find a computer?,,,,,Other,C,0,0,0
-24,What is an embedded computer system?,,,,,Other,C,0,0,0
+1,What base is the binary number system?,1,2,10,16,Binary,B,1,0,0
+2,What is one binary digit called?,Byte,bit,word,nibble,Binary,B,1,0,0
+3,What is the binary  value 1101 in decimal?,13,11,1101,3,Binary,A,1,0,0
+4,How many different values can be represented in 8 bits?,256,255,128,16,Binary,A,1,0,0
+5,What is the highest value that can be represented in 4 bits?,13,16,4,32,Binary,A,1,0,0
+6,what is the binary representation of 17(decimal)?,10001,11111,10000,10011,Binary,A,1,0,0
+7,How many bits are there in a byte?,2,4,8,16,Binary,C,1,0,0
+8,How many bits are there in a nibble?,2,4,8,16,Binary,B,1,0,0
+9,What is the binary value 100111 in decimal?,24,69,71,73,Binary,C,1,0,0
+10,How many states can each bit have?,1,2,4,8,Binary,B,1,0,0
+11,In what year was the word "computer" first used to describe a person who performed calculations?,1613,1713,1822,1837,History,A,1,0,0
+12,Charles Babbage began to develop his “Difference Engine” in what year?,1613,1822,1837,1936,History,B,1,0,0
+13,What was the name of the first mechanical calculator proposed by Charles Babbage?,Difference Engine,Analytical Engine,Turing Machine,Colossus,History,B,1,0,0
+14,What did the first electro-mechanical computer read instructions from?,35mm film,Punch cards,Punched drum,memory,History,A,1,0,0
+15,In what year did Alan Turing begin developing the Turing machine?,1936,1943,1949,1950,History,A,1,0,0
+16,What was the name of the first electric programmable computer?,,,,,History,C,1,0,0
+17,Which computer ran the first graphical computer game?,,,,,History,A,1,0,0
+18,The Univac 1101 was the first computer that could do what?,,,,,History,C,1,0,0
+19,When was the first computer mouse invented?,,,,,History,A,1,0,0
+20,In what year did Hewlett Packard begin to sell the first desktop computer?,,,,,History,A,1,0,0
+21,What is a Computer programme?,,,,,Other,A,1,0,0
+22,Why do we test programmes?,,,,,Other,C,1,0,0
+23,Where would you find a computer?,,,,,Other,C,1,0,0
+24,What is an embedded computer system?,,,,,Other,C,1,0,0

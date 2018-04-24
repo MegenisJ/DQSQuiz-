@@ -7,10 +7,7 @@ import csv
 
 
 def MainMenu():
-	if Verify() == True:
-		Setup.enterSchool()
-		#Setup.select_topic()
-	settings = Setup.load_settings()
+
 	QuestionList = ReadQuestionList()
 	while True:
 		print("Main Menu")
@@ -27,9 +24,10 @@ def MainMenu():
 		if menu == "1": #run quiz
 
 			settings = Setup.load_settings()
+			print("please select a topic:")
 			Topic = Setup.select_topic()
 			UserQuiz = Quiz(Topic)
-			
+
 			UserQuiz.TakeQuiz(Topic)
 
 		elif menu =="2": #Alice Change / Delete Questions
@@ -56,8 +54,8 @@ def MainMenu():
 							s= Stats(int(row[8]),int(row[9]),int(row[10]))
 							pc = s.CalcPercentCorrect()
 							pq = s.CalcPercentQuit()
-							print("Percentage of time answered correct: " + str(pc))
-							print("Percentage of time quiz is quit on this question: " + str(pq))
+							print("Percentage of time answered correct: " + str(pc) + "%")
+							print("Percentage of time quiz is quit on this question: " + str(pq) + "%")
 
 		elif menu =="7":
 			break
@@ -88,27 +86,27 @@ def ReadQuestionList():
 
 def AddQuestion(QuestionList):
 	d = {"A":"","B":"","C":"","D":""}
-	q = input("Enter the question: ")  
-	A = input("Enter answer A: ")    
-	d.update({'A': A })    
+	q = input("Enter the question: ")
+	A = input("Enter answer A: ")
+	d.update({'A': A })
 	B= input("Enter answer B: ")
 	d["B"] = B
-        
+
 	C =input("Enter answer C: ")
 	d["C"] = C
-        
+
 	D= input("Enter answer D: ")
 	d["D"] = D
 
 	CorrectAnswer = input("Enter the correct answer (A,B,C,D)")
-	
+
 	t = input("Enter a topic: ")
         #x = Question()
 	#QuestionList.append(Question(len(QuestionList),q,d,CorrectAnswer,ex,t))
 	QuestionList.append(Question(len(QuestionList),q,d,t,CorrectAnswer,0,0,0))
 	#Question.SaveQ(QuestionList)
-	#with open(r"questions.csv",'a') as csvfile:
-	#	writer = csv.writer(csvfile)
-	#	writer.writerow([len(QuestionList),q,d["A"],d["B"],d["C"],d["D"],t,CorrectAnswer,0,0,0])
+	with open(r"questions.csv",'a') as csvfile:
+		writer = csv.writer(csvfile)
+		writer.writerow([len(QuestionList),q,d["A"],d["B"],d["C"],d["D"],t,CorrectAnswer,1,0,0])
 
 MainMenu()
